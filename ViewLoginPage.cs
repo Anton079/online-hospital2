@@ -31,7 +31,13 @@ namespace online_hospital
 
                 switch (alegere)
                 {
+                    case "1":
+                        Login();
+                        break;
 
+                    case "2":
+
+                        break;
                 }
             }
 
