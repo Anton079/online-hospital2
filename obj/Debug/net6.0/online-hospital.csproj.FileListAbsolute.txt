@@ -1,0 +1,14 @@
+C:\mycode\oop\incapsularea\modificatori-de-acces-constructori\online-hospital\online-hospital\bin\Debug\net6.0\online-hospital.exe
+C:\mycode\oop\incapsularea\modificatori-de-acces-constructori\online-hospital\online-hospital\bin\Debug\net6.0\online-hospital.deps.json
+C:\mycode\oop\incapsularea\modificatori-de-acces-constructori\online-hospital\online-hospital\bin\Debug\net6.0\online-hospital.runtimeconfig.json
+C:\mycode\oop\incapsularea\modificatori-de-acces-constructori\online-hospital\online-hospital\bin\Debug\net6.0\online-hospital.dll
+C:\mycode\oop\incapsularea\modificatori-de-acces-constructori\online-hospital\online-hospital\bin\Debug\net6.0\online-hospital.pdb
+C:\mycode\oop\incapsularea\modificatori-de-acces-constructori\online-hospital\online-hospital\obj\Debug\net6.0\online-hospital.GeneratedMSBuildEditorConfig.editorconfig
+C:\mycode\oop\incapsularea\modificatori-de-acces-constructori\online-hospital\online-hospital\obj\Debug\net6.0\online-hospital.AssemblyInfoInputs.cache
+C:\mycode\oop\incapsularea\modificatori-de-acces-constructori\online-hospital\online-hospital\obj\Debug\net6.0\online-hospital.AssemblyInfo.cs
+C:\mycode\oop\incapsularea\modificatori-de-acces-constructori\online-hospital\online-hospital\obj\Debug\net6.0\online-hospital.csproj.CoreCompileInputs.cache
+C:\mycode\oop\incapsularea\modificatori-de-acces-constructori\online-hospital\online-hospital\obj\Debug\net6.0\online-hospital.dll
+C:\mycode\oop\incapsularea\modificatori-de-acces-constructori\online-hospital\online-hospital\obj\Debug\net6.0\refint\online-hospital.dll
+C:\mycode\oop\incapsularea\modificatori-de-acces-constructori\online-hospital\online-hospital\obj\Debug\net6.0\online-hospital.pdb
+C:\mycode\oop\incapsularea\modificatori-de-acces-constructori\online-hospital\online-hospital\obj\Debug\net6.0\online-hospital.genruntimeconfig.cache
+C:\mycode\oop\incapsularea\modificatori-de-acces-constructori\online-hospital\online-hospital\obj\Debug\net6.0\ref\online-hospital.dll
