@@ -11,7 +11,6 @@ namespace online_hospital
     public class ViewAdmin
     {
         private Admin admin;
-        private PatientService _patientService;
         private DoctorService _doctorService;
         private RegistrationSectionService _registrationSectionService;
         private SectionService _sectionService;
@@ -20,7 +19,6 @@ namespace online_hospital
         public ViewAdmin()
         {
             admin = new Admin(3, "Vlad", "vlad312@gmail.com");
-            _patientService = new PatientService();
             _doctorService = new DoctorService();
             _registrationSectionService = new RegistrationSectionService();
             _sectionService = new SectionService();
@@ -32,6 +30,7 @@ namespace online_hospital
             Console.WriteLine("Apasati tasta 1 pentru a adauga un doctor");
             Console.WriteLine("Apasati tasta 2 pentru edita programul spitalului");
             Console.WriteLine("Apasati tasta 3 pentru a edita numarul de telefon al unui doctor");
+            //sectia nu o pot edita sau adauga ca am legat restul functiilor de ea si in sectie sunt adauati pacientii
         }
 
         public void play()

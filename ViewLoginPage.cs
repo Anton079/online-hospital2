@@ -8,12 +8,12 @@ namespace online_hospital
 {
     public class ViewLoginPage
     {
-        private Patient _patient;
+        //private Patient _patient;
 
-        public ViewLoginPage()
-        {
-            _patient = new Patient();
-        }
+        //public ViewLoginPage()
+        //{
+        //    _patient = new Patient();
+        //}
 
         public void LoginMeniu()
         {
@@ -45,14 +45,14 @@ namespace online_hospital
             Console.WriteLine("Introduce-ti parola ta");
             string parolaLogin = Console.ReadLine();
 
-            if ()
-            {
+            //if ()
+            //{
 
-            }
-            else
-            {
-                Console.WriteLine("Datele nu sunt corecte sau nu detineti un cont");
-            }
+            //}
+            //else
+            //{
+            //    Console.WriteLine("Datele nu sunt corecte sau nu detineti un cont");
+            //}
         }
     }
 }
