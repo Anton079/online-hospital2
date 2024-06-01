@@ -8,15 +8,14 @@ namespace online_hospital
 {
     public class ViewDoctor
     {
-
         private Doctor doctor;
         private PatientService _patientService;
         private RegistrationSectionService _registrationSectionService;
         private SectionService _sectionService;
 
-        public ViewDoctor()
+        public ViewDoctor(Doctor doctor)
         {
-            doctor = new Doctor(4, "Alex", "Bogdan", 0784482941);
+            this.doctor = doctor;
             _patientService = new PatientService();
             _registrationSectionService = new RegistrationSectionService();
             _sectionService = new SectionService();

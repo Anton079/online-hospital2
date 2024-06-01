@@ -97,5 +97,17 @@ namespace online_hospital.Administration
             }
             return -1;
         }
+
+        public Admin CheckIfAdmin(int idAdmin, string parola)
+        {
+            for(int i = 0; i < _admin.Count;i++)
+            {
+                if (_admin[i].Id == idAdmin && _admin[i].Parola == parola)
+                {
+                    return _admin[i];
+                }
+            }
+            return null;
+        }
     }
 }

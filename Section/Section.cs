@@ -19,8 +19,8 @@ namespace online_hospital
 
             _idSection = int.Parse(token[0]);
             _idPatient = int.Parse(token[1]);
-            _sectionName = token[1];
-            _sectionFreeSeats = int.Parse(token[2]);
+            _sectionName = token[2];
+            _sectionFreeSeats = int.Parse(token[3]);
         }
 
         public Section(int idSection,int idPatient ,string sectionName,int sectionFreeSeats)

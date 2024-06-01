@@ -154,5 +154,17 @@ namespace online_hospital
             }
             return false;
         }
+
+        public Doctor CheckIfDoctor(int idDr, string parola)
+        {
+            for(int i =0; i < _doctor.Count ; i++)
+            {
+                if (_doctor[i].IdDoctor == idDr && _doctor[i].Parola == parola)
+                {
+                    return _doctor[i];
+                }
+            }
+            return null;
+        }
     }
 }

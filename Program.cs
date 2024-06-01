@@ -1,17 +1,21 @@
-﻿using online_hospital.Administration;
+﻿using online_hospital;
+using online_hospital.Administration;
 
 internal class Program
 {
     private static void Main(string[] args)
     {
-        AdminService adminService = new AdminService();
 
-        //admin.AfisareAdmins();
+        ViewLoginPage logPage = new ViewLoginPage();
 
-        Admin adminNew = new Admin(3, "Raluca", "Raluca@gmail.com");
+        logPage.play();
 
-        adminService.AddAdmin(adminNew);
-        adminService.SaveData();
-        
+
+
+
+
+
+
+
     }
 }

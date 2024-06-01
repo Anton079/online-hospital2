@@ -9,6 +9,7 @@ namespace online_hospital
     public class Doctor
     {
         private int _idDoctor;
+        private string _parola;
         private string _doctorFirstName;
         private string _doctorLastName;
         private int _numberPhone;
@@ -18,14 +19,16 @@ namespace online_hospital
             String[] token = proprietati.Split(',');
 
             _idDoctor = int.Parse(token[0]);
-            _doctorFirstName = token[1];
-            _doctorLastName = token[2];
-            _numberPhone = int.Parse(token[3]);
+            _parola = token[1];
+            _doctorFirstName = token[2];
+            _doctorLastName = token[3];
+            _numberPhone = int.Parse(token[4]);
         }
 
-        public Doctor(int idDoctor, string doctorFirstName,string doctorLastName ,int numarTelefon)
+        public Doctor(int idDoctor,string parola ,string doctorFirstName,string doctorLastName ,int numarTelefon)
         {
             _idDoctor=idDoctor;
+            _parola=parola;
             _doctorFirstName=doctorFirstName;
             _doctorLastName=doctorLastName;
             _numberPhone = numarTelefon;
@@ -35,6 +38,12 @@ namespace online_hospital
         {
             get { return _idDoctor; }
             set { _idDoctor = value; }
+        }
+
+        public string Parola
+        {
+            get { return _parola; }
+            set { _parola = value; }
         }
 
         public string DoctorName
@@ -59,6 +68,7 @@ namespace online_hospital
         {
             string text = " ";
             text += "Id doctor " + _idDoctor + "\n";
+            text += "Parola " + _parola + "\n";
             text += "Numele doctorului " + _doctorFirstName + "\n";
             text += "Prenumele doctorului " + _doctorLastName + "\n";
             text += "Numar de telefon " + _numberPhone + "\n";
@@ -67,7 +77,7 @@ namespace online_hospital
 
         public string ToSave()
         {
-            return this._idDoctor + "," + this._doctorFirstName + "," + this._doctorLastName + "," + this._numberPhone;
+            return this._idDoctor + "," + this._parola + "," + this._doctorFirstName + "," + this._doctorLastName + "," + this._numberPhone;
         }
 
     }

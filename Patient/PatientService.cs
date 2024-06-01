@@ -196,16 +196,32 @@ namespace online_hospital
             }
         } 
 
-        public bool CheckLogin(int id, string password)
+        public Patient CheckIfPatient(int id, string parola)
         {
-            for(int i = 0; i < _patient.Count; i++)
+            for(int i = 0; i < _patient.Count;i++)
             {
-                if(_patient[i].IdPatient == id && _patient[i].Parola == password)
+                if(_patient[i].IdPatient == id && _patient[i].Parola == parola)
                 {
-                    return true;
+                    return _patient[i];
                 }
             }
-            return false;
+            return null;
+        }
+
+        public int GenerateId()
+        {
+            Random rand = new Random();
+
+            int id = rand.Next(1, 10000000);
+
+
+            while (FindPatientById(id) != -1)
+            {
+                id = rand.Next(1, 10000000);
+            }
+
+
+            return id;
         }
     }
 }

@@ -16,9 +16,9 @@ namespace online_hospital
         private SectionService _sectionService;
         private HospitalInformationService _hospitalInformationService;
 
-        public ViewAdmin()
+        public ViewAdmin(Admin admin)
         {
-            admin = new Admin(3, "Vlad", "vlad312@gmail.com");
+            this.admin = admin;
             _doctorService = new DoctorService();
             _registrationSectionService = new RegistrationSectionService();
             _sectionService = new SectionService();
@@ -27,9 +27,8 @@ namespace online_hospital
 
         public void MeniuAdmin()
         {
-            Console.WriteLine("Apasati tasta 1 pentru a adauga un doctor");
-            Console.WriteLine("Apasati tasta 2 pentru edita programul spitalului");
-            Console.WriteLine("Apasati tasta 3 pentru a edita numarul de telefon al unui doctor");
+            Console.WriteLine("Apasati tasta 1 pentru edita programul spitalului");
+            Console.WriteLine("Apasati tasta 2 pentru a edita numarul de telefon al unui doctor");
             //sectia nu o pot edita sau adauga ca am legat restul functiilor de ea si in sectie sunt adauati pacientii
         }
 
@@ -44,41 +43,16 @@ namespace online_hospital
                 switch (alegere)
                 {
                     case "1":
-                        AddDoctor();
-                        break;
-
-                    case "2":
                         EditInfoHospital();
                         break;
 
-                    case "3":
+                    case "2":
                         EditDoctorNrPhone();
                         break;
 
 
                 }
             }
-        }
-
-        public void AddDoctor()
-        {
-            int idGenerator = _doctorService.GenerateId();
-
-            Console.WriteLine($"Id ul doctorului o sa fie {idGenerator}");
-
-            Console.WriteLine("Numele doctorului este ?");
-            string doctorName = Console.ReadLine();
-
-            Console.WriteLine("Prenumele doctorului este?");
-            string lastName = Console.ReadLine();
-
-            Console.WriteLine("Nr de telefon al doctorului este?");
-            int nrPhone= Int32.Parse(Console.ReadLine());
-
-            Doctor newDoctor = new Doctor(idGenerator, doctorName, lastName, nrPhone);
-
-            _doctorService.AddDoctor(newDoctor);
-            _doctorService.SaveData();
         }
 
         public void EditInfoHospital()

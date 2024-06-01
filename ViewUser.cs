@@ -14,9 +14,9 @@ namespace online_hospital
         private SectionService _sectionService;
         private HospitalInformationService _hospitalInformationService;
 
-        public ViewUser()                                    
-        {                                             //parola \/
-            patient = new Patient(5, "Mihnea", "Raul","MihneaRaul" ,"varicela", "mediu", 20052025, 3);
+        public ViewUser(Patient patient)                                    
+        {                                           
+            this.patient = patient;
             _doctorService = new DoctorService();
             _registrationSectionService = new RegistrationSectionService();
             _sectionService = new SectionService();
