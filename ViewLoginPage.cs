@@ -105,7 +105,7 @@ namespace online_hospital
         public void NewRegistration()
         {
             int idGenerat = _patientService.GenerateId();
-            Console.WriteLine("")
+            Console.WriteLine("");
                 //int idPatient, string firstName, string lastName,string parola ,string healthProblem, string degreeProblem, int dateHospitalization, int idDoctorPatient
         }
     }
