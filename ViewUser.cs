@@ -94,5 +94,26 @@ namespace online_hospital
             Console.WriteLine($"Pacientul este in vizorul doctorului{_doctorService.FindDoctorNameByHisId(patient.DoctorForPatient)}");
         }
 
+        public void EditPatient()                                                          // cum modific daca nu mai am legatura cu _patient?
+        {
+            Console.WriteLine("Ce vrei sa modifici din: 1.Nume, 2.Prenume, 3.Parola, 4.HealthProblem, 5.degreeProblem, 6.DateHospitalization, 7.IdDoctor?");
+
+            bool running = true;
+            while (running)
+            {
+                string alegere = Console.ReadLine() ;
+
+                switch (alegere)
+                {
+                    case "1":
+                        
+                        break;
+
+                }
+            }
+        }
+
+        
+
     }
 }

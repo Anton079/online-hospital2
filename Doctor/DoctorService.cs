@@ -166,5 +166,18 @@ namespace online_hospital
             }
             return null;
         }
+
+        public bool EditPasswordDoctor(int idDr, string newParola)
+        {
+            for(int i = 0; i < _doctor.Count; i++)
+            {
+                if (_doctor[i].IdDoctor == idDr)
+                {
+                    _doctor[i].Parola = newParola;
+                    return true;
+                }
+            }
+            return false;
+        }
     }
 }

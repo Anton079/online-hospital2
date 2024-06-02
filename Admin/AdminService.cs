@@ -109,5 +109,18 @@ namespace online_hospital.Administration
             }
             return null;
         }
+
+        public bool EditAdminPassword(int idWanted, string newPassword)
+        {
+            for(int i= 0; i< _admin.Count;i++)
+            {
+                if (_admin[i].Id == idWanted)
+                {
+                    _admin[i].Parola = newPassword;
+                    return true;
+                }
+            }
+            return false;
+        }
     }
 }

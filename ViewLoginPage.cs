@@ -46,7 +46,7 @@ namespace online_hospital
                         break;
 
                     case "2":
-
+                        NewRegistration();
                         break;
                 }
             }
@@ -105,8 +105,74 @@ namespace online_hospital
         public void NewRegistration()
         {
             int idGenerat = _patientService.GenerateId();
-            Console.WriteLine("");
-                //int idPatient, string firstName, string lastName,string parola ,string healthProblem, string degreeProblem, int dateHospitalization, int idDoctorPatient
+
+            Console.WriteLine("Care iti este numele de familie? ");
+            string firstName = Console.ReadLine();
+
+            Console.WriteLine("Care iti este prenumele? ");
+            string lastname = Console.ReadLine();
+
+            Console.WriteLine("Care o sa fie parola? ");
+            string newPassword = Console.ReadLine();
+
+            Console.WriteLine("Aveti o problema de sanatate deja?");
+            string newHealthProblem = Console.ReadLine();
+
+            Console.WriteLine("La ce grad de dificultate este problema dumneavoastra de sanatate? ");
+            string degreeProblem = Console.ReadLine();
+
+            Console.WriteLine("In ce data v ati spitalizat? ");
+            int newDateHospitalzation = Int32.Parse(Console.ReadLine());
+
+            Console.WriteLine("Ce id are doctorul care este in tratarea acientului? ");
+            int newIdDoctorPatient = Int32.Parse(Console.ReadLine());
+
+            Patient newPatient = new Patient(idGenerat, firstName, lastname, newPassword, newHealthProblem, degreeProblem, newDateHospitalzation, newIdDoctorPatient);
+
+            if (_patientService.AddPatient(newPatient))
+            {
+                Console.WriteLine("Pacientul a fos adaugat!");
+            }
+            else
+            {
+                Console.WriteLine("Pacientul nu a putut fi adaugat!");
+            }
+
+            _patientService.SaveData();
+        }
+
+        public void ResetareParola()
+        {
+            Console.WriteLine("Ce grad de user ai? (User, Doctor, Admin)");
+            string userWanted = Console.ReadLine();
+
+            Console.WriteLine("Care este id ul tau?");
+            int idWanted = Int32.Parse(Console.ReadLine());
+
+            Console.WriteLine("Care sa fie noua parola");
+            string newPassword = Console.ReadLine();
+
+            switch (userWanted)
+            {
+                //case "User":                                                                      //cum il modific?
+                    
+                //    Console.WriteLine("Resetarea parolei pentru utilizator.");
+                //    break;
+
+                case "Doctor":
+                    _doctorService.EditPasswordDoctor(idWanted, newPassword);
+                    Console.WriteLine("Resetarea parolei pentru doctor.");
+                    break;
+
+                case "Admin":
+                    _adminService.EditAdminPassword(idWanted, newPassword);
+                    Console.WriteLine("Resetarea parolei pentru administrator.");
+                    break;
+
+                default:
+                    Console.WriteLine("Nu te-am putut gasi pentru ati reseta parola!");
+                    break;
+            }
         }
     }
 }

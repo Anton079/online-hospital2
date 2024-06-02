@@ -223,5 +223,18 @@ namespace online_hospital
 
             return id;
         }
+
+        public bool EditPatientFirstNameById(int idWanted, string newFirstName)
+        {
+            for (int i = 0; i < _patient.Count; i++)
+            {
+                if (_patient[i].IdPatient == idWanted)
+                {
+                    newFirstName = _patient[i].FirstName;
+                    return true;
+                }
+            }
+            return false;
+        }
     }
 }

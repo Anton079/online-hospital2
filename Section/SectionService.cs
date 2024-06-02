@@ -164,5 +164,18 @@ namespace online_hospital
 
             return id;
         }
+
+        public bool EditSectionByIdSection(int idSection, string newSectionName)
+        {
+            for(int i = 0; i < _sections.Count;i++)
+            {
+                if (_sections[i].IdSection == idSection)
+                {
+                    newSectionName = _sections[i].SectionName;
+                    return true;
+                }
+            }
+            return false;
+        }
     }
 }

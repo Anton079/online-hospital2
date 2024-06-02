@@ -10,7 +10,7 @@ namespace online_hospital.Administration
     {
         private int _id;
         private string _parola;
-        private string _name;
+        private string _firstName;
         private string _email;
 
         public Admin(string proprietati)
@@ -19,15 +19,15 @@ namespace online_hospital.Administration
 
             _id = int.Parse(token[0]);
             _parola = token[1];
-            _name = token[2];
+            _firstName = token[2];
             _email = token[3];
         }
 
-        public Admin(int id,string parola ,string name, string email)
+        public Admin(int id,string parola ,string firstName, string email)
         {
             _id = id;
             _parola = parola;
-            _name = name;
+            _firstName = firstName;
             _email = email;
         }
 
@@ -43,10 +43,10 @@ namespace online_hospital.Administration
             set { _parola = value; }
         }
 
-        public string Name
+        public string FirstName
         {
-            get { return _name; }
-            set { _name = value; }
+            get { return _firstName; }
+            set { _firstName = value; }
         }
 
         public string Email
@@ -60,14 +60,14 @@ namespace online_hospital.Administration
             string text = " ";
             text += "Id administrator: " + _id + "\n";
             text += "Parola " + _parola + "\n";
-            text += "Nume administrator: " + _name + "\n";
+            text += "Nume administrator: " + _firstName + "\n";
             text += "Email administrator: " + _email + "\n";
             return text;
         }
 
         public string ToSave()
         {
-            return _id + "," +this._parola +"," + _name + "," + _email;
+            return _id + "," +this._parola +"," + _firstName + "," + _email;
         }
     }
 

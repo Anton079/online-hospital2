@@ -29,7 +29,7 @@ namespace online_hospital
         {
             Console.WriteLine("Apasati tasta 1 pentru edita programul spitalului");
             Console.WriteLine("Apasati tasta 2 pentru a edita numarul de telefon al unui doctor");
-            //sectia nu o pot edita sau adauga ca am legat restul functiilor de ea si in sectie sunt adauati pacientii
+            Console.WriteLine("Apasati tasta 3 pentru a edita sectia spitalului dupa id-ul sectii");
         }
 
         public void play()
@@ -50,7 +50,9 @@ namespace online_hospital
                         EditDoctorNrPhone();
                         break;
 
-
+                    case "3":
+                        EditSectionByIdSection();
+                        break;
                 }
             }
         }
@@ -74,8 +76,34 @@ namespace online_hospital
             Console.WriteLine("Cu ce nr vrei sa il schimbi?");
             int newNrPhone = Int32.Parse(Console.ReadLine());
 
-            _doctorService.EditNrPhoneById(IdDrNrPhone, newNrPhone);
-            _doctorService.SaveData();
+            if(_doctorService.EditNrPhoneById(IdDrNrPhone, newNrPhone))
+            {
+                Console.WriteLine("Nr de telefol a fost modificat!");
+                _doctorService.SaveData();
+            }
+            else
+            {
+                Console.WriteLine("Nr de telefol NU a fost modificat!");
+            }
+        }
+
+        public void EditSectionByIdSection()
+        {
+            Console.WriteLine("Ce id are sectia pe care vrei sa o modifici? ");
+            int idSectionWanted = Int32.Parse(Console.ReadLine());
+
+            Console.WriteLine("Ce nume o sa aiba noua sectia?");
+            string newNameSection = Console.ReadLine();
+
+            if(_sectionService.EditSectionByIdSection(idSectionWanted, newNameSection))
+            {
+                Console.WriteLine("Sectia a fost modificata cu succes");
+                _sectionService.SaveData();
+            }
+            else
+            {
+                Console.WriteLine("Sectia NU a fost modificata");
+            }
         }
     }
 }

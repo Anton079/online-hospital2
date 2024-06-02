@@ -112,10 +112,11 @@ namespace online_hospital
             if(_patientService.EditProblemHealth(idPatient, healthProblem))
             {
                 Console.WriteLine("Problema de sanatate a pacientului a fost modificata");
+                _patientService.SaveData();
             }
             else
             {
-                Console.WriteLine("Problema de sanatate a pacientului a fost modificata");
+                Console.WriteLine("Problema de sanatate a pacientului NU a fost modificata");
             }
         } 
 
@@ -130,6 +131,7 @@ namespace online_hospital
             if(_patientService.EditDegreeHealthProblem(idPatient, degreeOfHealth))
             {
                 Console.WriteLine("Modificarea de grad a pacientului a reusit");
+                _patientService.SaveData();
             }
             else
             {
