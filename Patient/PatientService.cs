@@ -230,7 +230,33 @@ namespace online_hospital
             {
                 if (_patient[i].IdPatient == idWanted)
                 {
-                    newFirstName = _patient[i].FirstName;
+                    _patient[i].FirstName = newFirstName;
+                    return true;
+                }
+            }
+            return false;
+        }
+
+        public bool EditLastNameById(int idWanted, string newLastName)
+        {
+            for(int i = 0; i < _patient.Count; i++)
+            {
+                if (_patient[i].IdPatient == idWanted)
+                {
+                    _patient[i].LastName = newLastName;
+                    return true;
+                }
+            }
+            return false;
+        }
+
+        public bool EditPassword(int idWanted, string newPassword)
+        {
+            for(int i = 0; i < _patient.Count;i++)
+            {
+                if (_patient[i].IdPatient == idWanted)
+                {
+                    _patient[i].Parola = newPassword;
                     return true;
                 }
             }

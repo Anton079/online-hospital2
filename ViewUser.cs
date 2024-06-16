@@ -9,6 +9,7 @@ namespace online_hospital
     public class ViewUser
     {
         private Patient patient;
+        private PatientService _patientService;
         private DoctorService _doctorService;
         private RegistrationSectionService _registrationSectionService;
         private SectionService _sectionService;
@@ -17,6 +18,7 @@ namespace online_hospital
         public ViewUser(Patient patient)                                    
         {                                           
             this.patient = patient;
+            _patientService = new PatientService();
             _doctorService = new DoctorService();
             _registrationSectionService = new RegistrationSectionService();
             _sectionService = new SectionService();
@@ -30,6 +32,7 @@ namespace online_hospital
             Console.WriteLine("Apasati tasta 3 pentru a vedea gradul de problema al pacientului (bun-ok-rau)");
             Console.WriteLine("Apasati tasta 4 pentru a vedea programul de vizita si alte informatii de contact");
             Console.WriteLine("Apasati tasta 5 pentru a vedea la ce doctor se afla pacietnul");
+            Console.WriteLine("Apasati tasta 6 pentru a edita informatii despre pacient");
         }
 
         public void play()
@@ -60,6 +63,10 @@ namespace online_hospital
 
                     case "5":
                         ShowDoctorPatient();
+                        break;
+
+                    case "6":
+                        EditPatient();
                         break;
                 }
             }
@@ -94,9 +101,9 @@ namespace online_hospital
             Console.WriteLine($"Pacientul este in vizorul doctorului{_doctorService.FindDoctorNameByHisId(patient.DoctorForPatient)}");
         }
 
-        public void EditPatient()                                                          // cum modific daca nu mai am legatura cu _patient?
+        public void EditPatient()
         {
-            Console.WriteLine("Ce vrei sa modifici din: 1.Nume, 2.Prenume, 3.Parola, 4.HealthProblem, 5.degreeProblem, 6.DateHospitalization, 7.IdDoctor?");
+            Console.WriteLine("Ce vrei sa modifici din: 1.Nume, 2.Prenume, 3.Parola");
 
             bool running = true;
             while (running)
@@ -106,14 +113,74 @@ namespace online_hospital
                 switch (alegere)
                 {
                     case "1":
-                        
+                        EditFirstName();
                         break;
 
+                    case "2":
+                        EditLastName();
+                        break;
+
+                    case "3":
+                        EditPasswordById();
+                        break;
                 }
             }
         }
 
-        
+        public void EditFirstName()
+        {
+            int idWanted = patient.IdPatient;
 
+            Console.WriteLine("Ce nume vrei sa pui in schimb? ");
+            string newPatientName = Console.ReadLine();
+
+            if (_patientService.EditPatientFirstNameById(idWanted, newPatientName))
+            {
+                Console.WriteLine("Numele de familie a fost modificat");
+                _patientService.SaveData();
+            }
+            else
+            {
+                Console.WriteLine("Numele de familie nu a fost modificat ");
+            }
+            
+
+        }
+
+        public void EditLastName()
+        {
+            int idWanted = patient.IdPatient;
+
+            Console.WriteLine("Ce prenume vrei sa pui in schimb? ");
+            string newPatientName = Console.ReadLine();
+
+            if (_patientService.EditLastNameById(idWanted, newPatientName))
+            {
+                Console.WriteLine("Prenumele a fost modificat");
+                _patientService.SaveData();
+            }
+            else
+            {
+                Console.WriteLine("Prenumele nu a fost modificat ");
+            }
+        }
+
+        public void EditPasswordById()
+        {
+            int idWanted = patient.IdPatient;
+
+            Console.WriteLine("Care este noua parola? ");
+            string newPassword = Console.ReadLine();
+
+            if(_patientService.EditPassword(idWanted, newPassword))
+            {
+                Console.WriteLine("Parola a fost modificata");
+                _patientService.SaveData();
+            }
+            else
+            {
+                Console.WriteLine("Parola nu a fost modificata");
+            }
+        }
     }
 }

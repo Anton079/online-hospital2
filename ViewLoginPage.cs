@@ -29,6 +29,7 @@ namespace online_hospital
         {
             Console.WriteLine("Apasati tasta 1 pentru logare");
             Console.WriteLine("Apasati tasta 2 pentru a va inregista");
+            Console.WriteLine("Apasati tasta 3 pentru a reseta parola");
         }
 
         public void play()
@@ -47,6 +48,10 @@ namespace online_hospital
 
                     case "2":
                         NewRegistration();
+                        break;
+
+                    case "3":
+                        ResetareParola();
                         break;
                 }
             }
@@ -82,10 +87,6 @@ namespace online_hospital
                 ViewAdmin viewAdmin = new ViewAdmin(admin);
                 Console.WriteLine("V ati logat cu succes!");
                 viewAdmin.play();
-            }
-            else
-            {
-                Console.WriteLine("Datele nu sunt corecte sau nu nu sunteti inregistrat");
             }
 
             Doctor doctor = _doctorService.CheckIfDoctor(idLogin, parolaLogin);
@@ -143,7 +144,7 @@ namespace online_hospital
 
         public void ResetareParola()
         {
-            Console.WriteLine("Ce grad de user ai? (User, Doctor, Admin)");
+            Console.WriteLine("Ce grad de user ai? (Patient, Doctor, Admin)");
             string userWanted = Console.ReadLine();
 
             Console.WriteLine("Care este id ul tau?");
@@ -154,18 +155,21 @@ namespace online_hospital
 
             switch (userWanted)
             {
-                //case "User":                                                                      //cum il modific?
-                    
-                //    Console.WriteLine("Resetarea parolei pentru utilizator.");
-                //    break;
+                case "Patient":
+                    _patientService.EditPassword(idWanted, newPassword);
+                    _patientService.SaveData();
+                    Console.WriteLine("Resetarea parolei pentru utilizator.");
+                    break;
 
                 case "Doctor":
                     _doctorService.EditPasswordDoctor(idWanted, newPassword);
+                    _doctorService.SaveData();
                     Console.WriteLine("Resetarea parolei pentru doctor.");
                     break;
 
                 case "Admin":
                     _adminService.EditAdminPassword(idWanted, newPassword);
+                    _adminService.SaveData();
                     Console.WriteLine("Resetarea parolei pentru administrator.");
                     break;
 
